@@ -4,7 +4,7 @@ A Flask web app with a live 3D scene (Three.js). Each node in the scene is a sta
 pipeline that deploys the app. A status card shows the app version, the Jenkins build number
 and the **pod that served the request**, so you can see a new release arrive on screen.
 
-**Author:** <your name, PRN, division>  **Course:** TYCSE Cloud Computing and DevOps
+**Author:** <Vaibhav Pal, 1262242410, Panel C>  **Course:** TYCSE Cloud Computing and DevOps
 
 ## Repository layout
 ```
@@ -68,8 +68,8 @@ sudo -iu jenkins kubectl port-forward --address 0.0.0.0 svc/pipeline-observatory
 ## 4. Second run (code change demo)
 Edit `app.py`:
 ```python
-APP_VERSION = "1.1.0"
-ACCENT = "#5EEAD4"      # the whole 3D scene changes from amber to teal
+APP_VERSION = "1.1.0" or any 
+ACCENT = "#5EEAD4"      # the whole 3D scene changes from amber to teal or we can do anything we want any colour change 
 ```
 `git commit -am "v1.1.0 teal theme" && git push`. The webhook starts a new build; refresh the page and
 the version, build number and colour have changed, and `kubectl get pods` shows new pod names.
@@ -84,14 +84,6 @@ the version, build number and colour have changed, and `kubectl get pods` shows 
 7. App open in the browser (version 1.0.0)
 8. Second run: Stage View, then the app showing 1.1.0 and the new colour
 
-## Likely viva questions
-* **Why a Jenkinsfile?** Pipeline-as-code: versioned with the project and reproducible.
-* **Why tag with the build number?** Each deploy is traceable and rollback-able; `latest` alone would not change the manifest, so Kubernetes would not roll out.
-* **How are secrets protected?** Docker Hub token is stored in Jenkins credentials and masked in logs.
-* **What do the probes do?** Readiness holds traffic until `/health` passes; liveness restarts a stuck container.
-* **Why 2 replicas?** Availability during rolling updates; the pod name on the page changes as traffic is balanced.
-* **ClusterIP vs NodePort?** NodePort exposes the service on a node port (30080) so it is reachable from outside the cluster.
-* **What if there were no tests?** The stage would still run a syntax check or lint.
 
 ## Run locally
 ```bash

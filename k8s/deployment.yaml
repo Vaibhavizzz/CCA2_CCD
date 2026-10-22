@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pipeline-observatory
+  labels:
+    app: pipeline-observatory
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pipeline-observatory
+  template:
+    metadata:
+      labels:
+        app: pipeline-observatory
+    spec:
+      containers:
+        - name: web
+          image: IMAGE_PLACEHOLDER   # Jenkins replaces this with <user>/pipeline-observatory:<build>
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          readinessProbe:
+            httpGet: { path: /health, port: 5000 }
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: { path: /health, port: 5000 }
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits: { cpu: 250m, memory: 192Mi }

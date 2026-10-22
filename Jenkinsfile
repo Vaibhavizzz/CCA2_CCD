@@ -12,10 +12,10 @@ pipeline {
     }
 
     environment {
-        DOCKERHUB_USER = 'vaibhaviz'   // <-- change this
+        DOCKERHUB_USER = 'vaibhaviz'  
         IMAGE_NAME     = "${DOCKERHUB_USER}/pipeline-observatory"
         IMAGE_TAG      = "${BUILD_NUMBER}"
-        REGISTRY_CREDS = 'dockerhub-creds'            // Jenkins credentials ID
+        REGISTRY_CREDS = 'dockerhub-creds'           
         APP_LABEL      = 'app=pipeline-observatory'
     }
 

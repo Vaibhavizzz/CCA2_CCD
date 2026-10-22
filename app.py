@@ -8,8 +8,8 @@ from flask import Flask, jsonify, render_template
 app = Flask(__name__)
 
 # --- Change these two values for the "second run" demo -------------------
-APP_VERSION = "1.1.0"
-ACCENT = "#FACC15 "  # try "#5EEAD4" (teal) or "#FF7A90" (coral) for v1.1.0
+APP_VERSION = "1.2.0"
+ACCENT = "#F43F5E "  # try "#5EEAD4" (teal) or "#FF7A90" (coral) for v1.1.0
 # --------------------------------------------------------------------------
 
 BUILD_NUMBER = os.getenv("BUILD_NUMBER", "local")

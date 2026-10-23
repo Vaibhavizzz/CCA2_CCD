@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # --- Change these two values for the "second run" demo -------------------
 APP_VERSION = "1.2.1"
-ACCENT = "#5943ABA8"  # try "#5EEAD4" (teal) or "#FF7A90" (coral) for v1.1.0
+ACCENT = "#1AF266D0" 
 # --------------------------------------------------------------------------
 
 BUILD_NUMBER = os.getenv("BUILD_NUMBER", "local")

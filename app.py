@@ -8,7 +8,7 @@ from flask import Flask, jsonify, render_template
 app = Flask(__name__)
 
 # --- Change these two values for the "second run" demo -------------------
-APP_VERSION = "2.0.1"
+APP_VERSION = "2.1.1"
 ACCENT = "#F43F5E" 
 # --------------------------------------------------------------------------
 

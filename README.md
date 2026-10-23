@@ -26,7 +26,7 @@ k8s/deployment.yaml  k8s/service.yaml
 | Verify | Lists pods, deployment and service, then calls `/health` and `/api/status` |
 
 ## 1. Set up Jenkins on AWS
-1. Launch an EC2 instance: Ubuntu 22.04, **t3.medium** (2 vCPU / 4 GB), 20 GB disk.
+1. Launch an EC2 instance: Ubuntu 22.04, **m7i-flex.large** (4 vCPU / 8 GB), 50 GB disk.
    Security group inbound: 22 (your IP), 8080 (Jenkins), 30080 (app).
 2. Install the tools:
 ```bash

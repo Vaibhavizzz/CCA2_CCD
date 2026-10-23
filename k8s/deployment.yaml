@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: IMAGE_PLACEHOLDER   # Jenkins replaces this with <user>/pipeline-observatory:<build>
+          image: IMAGE_PLACEHOLDER   
           imagePullPolicy: Always
           ports:
             - containerPort: 5000

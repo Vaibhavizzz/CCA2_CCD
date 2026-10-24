@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pipeline Observatory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div id="tip" class="tip" aria-hidden="true"></div>
+
+  <main class="panel">
+    <h1>Follow a commit from GitHub to Kubernetes</h1>
+    <p class="lead">Each node is a stage of this app's own delivery pipeline. Pick one to see what it does.</p>
+
+    <ol id="stages" class="stages" aria-label="Pipeline stages"></ol>
+
+    <section id="detail" class="detail" aria-live="polite">
+      <h2 id="d-name"></h2>
+      <p class="tool" id="d-tool"></p>
+      <p id="d-text"></p>
+    </section>
+  </main>
+
+  <aside class="status" aria-live="polite">
+    <span class="dot" id="dot"></span>
+    <dl>
+      <div><dt>Version</dt><dd id="s-version">-</dd></div>
+      <div><dt>Jenkins build</dt><dd id="s-build">-</dd></div>
+      <div><dt>Served by pod</dt><dd id="s-pod">-</dd></div>
+      <div><dt>Uptime</dt><dd id="s-uptime">-</dd></div>
+    </dl>
+    <p id="s-msg" class="msg"></p>
+  </aside>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
